@@ -1,7 +1,6 @@
 module github.com/kedacore/keda/v2
 
 go 1.22.1
-
 toolchain go1.23.3
 
 require (
@@ -97,7 +96,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.31.0
 	go.uber.org/mock v0.5.0
 	golang.org/x/oauth2 v0.23.0
-	golang.org/x/sync v0.8.0
+	golang.org/x/sync v0.9.0
 	google.golang.org/api v0.204.0
 	google.golang.org/grpc v1.67.1
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.5.1
