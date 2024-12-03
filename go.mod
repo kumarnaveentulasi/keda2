@@ -1,7 +1,6 @@
 module github.com/kedacore/keda/v2
 
 go 1.22.1
-
 toolchain go1.23.3
 
 require (
@@ -23,7 +22,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue v1.0.0
 	github.com/Azure/go-autorest/autorest v0.11.29
 	github.com/Azure/go-autorest/autorest/azure/auth v0.5.13
-	github.com/AzureAD/microsoft-authentication-library-for-go v1.2.3
+	github.com/AzureAD/microsoft-authentication-library-for-go v1.3.2
 	github.com/DataDog/datadog-api-client-go v1.16.0
 	github.com/Huawei/gophercloud v1.0.21
 	github.com/IBM/sarama v1.43.3
