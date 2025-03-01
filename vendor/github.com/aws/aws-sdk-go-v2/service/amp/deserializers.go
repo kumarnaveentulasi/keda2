@@ -4563,7 +4563,7 @@ func awsRestjson1_deserializeDocumentAccessDeniedException(v **types.AccessDenie
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -4773,7 +4773,7 @@ func awsRestjson1_deserializeDocumentConflictException(v **types.ConflictExcepti
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -4921,7 +4921,7 @@ func awsRestjson1_deserializeDocumentInternalServerException(v **types.InternalS
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -5109,7 +5109,7 @@ func awsRestjson1_deserializeDocumentResourceNotFoundException(v **types.Resourc
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -5134,6 +5134,55 @@ func awsRestjson1_deserializeDocumentResourceNotFoundException(v **types.Resourc
 					return fmt.Errorf("expected String to be of type string, got %T instead", value)
 				}
 				sv.ResourceType = ptr.String(jtv)
+			}
+
+		default:
+			_, _ = key, value
+
+		}
+	}
+	*v = sv
+	return nil
+}
+
+func awsRestjson1_deserializeDocumentRoleConfiguration(v **types.RoleConfiguration, value interface{}) error {
+	if v == nil {
+		return fmt.Errorf("unexpected nil of type %T", v)
+	}
+	if value == nil {
+		return nil
+	}
+
+	shape, ok := value.(map[string]interface{})
+	if !ok {
+		return fmt.Errorf("unexpected JSON type %v", value)
+	}
+
+	var sv *types.RoleConfiguration
+	if *v == nil {
+		sv = &types.RoleConfiguration{}
+	} else {
+		sv = *v
+	}
+
+	for key, value := range shape {
+		switch key {
+		case "sourceRoleArn":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected IamRoleArn to be of type string, got %T instead", value)
+				}
+				sv.SourceRoleArn = ptr.String(jtv)
+			}
+
+		case "targetRoleArn":
+			if value != nil {
+				jtv, ok := value.(string)
+				if !ok {
+					return fmt.Errorf("expected IamRoleArn to be of type string, got %T instead", value)
+				}
+				sv.TargetRoleArn = ptr.String(jtv)
 			}
 
 		default:
@@ -5555,6 +5604,11 @@ func awsRestjson1_deserializeDocumentScraperDescription(v **types.ScraperDescrip
 				sv.RoleArn = ptr.String(jtv)
 			}
 
+		case "roleConfiguration":
+			if err := awsRestjson1_deserializeDocumentRoleConfiguration(&sv.RoleConfiguration, value); err != nil {
+				return err
+			}
+
 		case "scrapeConfiguration":
 			if err := awsRestjson1_deserializeDocumentScrapeConfiguration(&sv.ScrapeConfiguration, value); err != nil {
 				return err
@@ -5728,6 +5782,11 @@ func awsRestjson1_deserializeDocumentScraperSummary(v **types.ScraperSummary, va
 				sv.RoleArn = ptr.String(jtv)
 			}
 
+		case "roleConfiguration":
+			if err := awsRestjson1_deserializeDocumentRoleConfiguration(&sv.RoleConfiguration, value); err != nil {
+				return err
+			}
+
 		case "scraperId":
 			if value != nil {
 				jtv, ok := value.(string)
@@ -5862,7 +5921,7 @@ func awsRestjson1_deserializeDocumentServiceQuotaExceededException(v **types.Ser
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -6050,7 +6109,7 @@ func awsRestjson1_deserializeDocumentThrottlingException(v **types.ThrottlingExc
 
 	for key, value := range shape {
 		switch key {
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
@@ -6126,7 +6185,7 @@ func awsRestjson1_deserializeDocumentValidationException(v **types.ValidationExc
 				return err
 			}
 
-		case "message":
+		case "message", "Message":
 			if value != nil {
 				jtv, ok := value.(string)
 				if !ok {
